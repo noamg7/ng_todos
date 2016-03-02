@@ -31,6 +31,6 @@ app.controller('TodoController', function($scope){
   $scope.moveDown = function(singleTodo){
     var index = $scope.todoList.indexOf(singleTodo);
     $scope.todoList.splice(index, 1);
-    $scope.todoList.splice(index -1, -1, singleTodo);
+    $scope.todoList.splice(index +1, 0, singleTodo);
   }
 });
