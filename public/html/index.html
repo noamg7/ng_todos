@@ -5,10 +5,39 @@
   <title>ng-Todos</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+  <style>
+  body{
+    margin-top: 70px;
+    margin-left: 40px;
+  }
+  .no-dot{
+    list-style: none;
+  }
+
+  </style>
 </head>
 <body>
   <div class="container" ng-controller='TodoController'>
-    {{message}}
+    <div class="row">
+      <div class="col-md-6 col-ms-12">
+        <div class="form-group">
+          <input type="text" class="form-control"
+          placeholder="what do you need to do?" ng-model='currentTodo'>
+          <button class="btn btn-primary btn-block" ng-click='saveTodo()' type="button" >Save Todo</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <ul>
+          <li class="well no-dot" ng-repeat='singleTodo in todoList'>
+            {{singleTodo}}
+            <button class="btn btn-info btn-sm pull-right" ng-click='editTodo(singleTodo)'>Edit</button>
+            <button class="btn btn-danger btn-sm pull-right" ng-click='removeTodo(singleTodo)'>X</button>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 <script src='js/app.js'></script>
 </body>
